@@ -1,0 +1,53 @@
+<script type="text/javascript">
+	function DateDiffToday(d)
+	{
+		try
+		{  
+			var dateArr1 = d.split("-");
+			var checkDate1 = new Date();
+			checkDate1.setFullYear(dateArr1[0], dateArr1[1]-1, dateArr1[2]);
+			var checkDate2 = new Date();
+			var cha = Math.floor(Math.abs(checkDate1 - checkDate2) / 1000 / 60 / 60 /24 + 0.5);
+			if(checkDate1 < checkDate2)
+			{
+				return -1;
+			}
+			return cha;
+		}
+		catch(e)
+		{
+			return -1;
+		}
+	}
+	function showDay(d)
+	{
+		var dateArr = d.split("-");
+		var setYear = dateArr[0];
+		var setMonth = dateArr[1];
+		var setDay = dateArr[2];
+		if(DateDiffToday(d) == -1)
+		{
+			document.write('今天已在'+setYear+'年'+setMonth+'月'+setDay+'日之后！'+"<br>");
+		}
+		else if(DateDiffToday(d) == 0)
+		{
+			document.write('今天就是'+setYear+'年'+setMonth+'月'+setDay+'日！'+"<br>");
+		}
+		else
+		{
+			document.write('今天距离'+setYear+'年'+setMonth+'月'+setDay+'日还有'+DateDiffToday(d)+'天！'+"<br>");
+		}
+	}
+</script>
+<script type="text/javascript">
+	showDay('2017-04-01');
+	showDay('2017-06-01');
+	showDay('2017-07-23');
+	showDay('2017-08-28');
+	showDay('2017-12-09');
+	showDay('2017-12-25');
+	showDay('2018-01-01');
+	showDay('2018-02-14');
+	showDay('2018-03-07');
+	showDay('2018-03-08');
+</script>

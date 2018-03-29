@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+	<script type="text/javascript">
+		function DateDiff(d1,d2)//d1-d2
+		{
+			var day = 24 * 60 * 60 *1000;
+			try
+			{  
+				var dateArr1 = d1.split("-");
+				var checkDate1 = new Date();
+				checkDate1.setFullYear(dateArr1[0], dateArr1[1]-1, dateArr1[2]);
+				var checkTime1 = checkDate1.getTime();
+ 
+				var dateArr2 = d2.split("-");
+				var checkDate2 = new Date();
+				checkDate2.setFullYear(dateArr2[0], dateArr2[1]-1, dateArr2[2]);
+				var checkTime2 = checkDate2.getTime();
+
+				var cha = (checkTime1 - checkTime2)/day; 
+				return parseInt(cha);
+			}
+			catch(e)
+			{
+				return false;
+			}
+		}
+		function DateDiffToday(d)
+		{
+			var day = 24 * 60 * 60 *1000;
+			try
+			{  
+				var dateArr1 = d.split("-");
+				var checkDate1 = new Date();
+				checkDate1.setFullYear(dateArr1[0], dateArr1[1]-1, dateArr1[2]);
+				var checkTime1 = checkDate1.getTime();
+ 
+				var checkDate2 = new Date();
+				var checkTime2 = checkDate2.getTime();
+  
+				var cha = (checkTime1 - checkTime2)/day; 
+				return parseInt(cha);
+			}
+			catch(e)
+			{
+				return false;
+			}
+		}
+	</script>
+	<p>距离：</p>
+	<script>
+		var year='2017'; 
+		var month='4'; 
+		var day='1'; 
+		document.write(year+'年'+month+'月'+day+'日');
+	</script>
+	<p>还有</p>
+	<script>
+		var calDay = "2017-04-01";
+		document.write(DateDiffToday(calDay));
+	</script>
+	<p>天</p>
+</html>
